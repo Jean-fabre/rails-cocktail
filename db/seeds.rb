@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'open-uri'
 require 'json'
+require 'pry'
 
 url = 'https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list'
 
@@ -18,4 +19,9 @@ ingredients["drinks"].each do |i|
   @ing << i["strIngredient1"]
 end
 
-puts @ing
+@ing.each do |n|
+ingre = Hash.new
+ingre[:name] = n
+Ingredient.create(ingre)
+end
+

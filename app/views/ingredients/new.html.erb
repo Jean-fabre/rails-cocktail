@@ -1,0 +1,10 @@
+<h1>Add a new Ingredient</h1>
+<%= form_for [@cocktail, @ingredient] do |f|  %>
+<%= f.label :name, "enter the ingredient"  %>
+<%= f.text_field :name %>
+<%= f.submit %>
+<% end %>
+
+<%= link_to 'Back', cocktails_path %>
+
+

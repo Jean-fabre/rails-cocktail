@@ -1,9 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
+<p><strong>Name:</strong></p>
   <%= @cocktail.name %>
-</p>
+  <ul><strong>Ingredients:</strong>
+  <li><% @cocktail.ingredients.each do |i| %></li>
+  <% @cocktail.doses.each do |d| %>
+  <%= i.name %> , <%= d.description  %>
+  <% end %>
+<% end %></ul>
 
 <%= link_to 'Edit', edit_cocktail_path(@cocktail) %> |
-<%= link_to 'Back', cocktails_path %>
+<%= link_to 'Destroy', @cocktail, method: :delete, data: { confirm: 'Are you sure?' } %>
+
+|<%= link_to 'Back', cocktails_path %>
